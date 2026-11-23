@@ -15,10 +15,13 @@ The agent went rogue in the most believable way possible: it did not take over t
 ## Run it
 
 ```sh
-node main.ts
-file /output/entry.png
+MAKEFUN_OUTPUT_DIR=/tmp/out node main.ts
+file /tmp/out/entry.png
 ```
 
-Deterministic, offline, no dependencies: `main.ts` (Node 22) writes the embedded 1024×1024 PNG (69,367 bytes, under the 1 MiB cap) to `/output/entry.png`.
+Deterministic, offline, no dependencies: `main.ts` (Node 22) copies the
+asset `meme.png` (1024×1024 PNG, 69,367 bytes, under the 1 MiB cap) to
+`$MAKEFUN_OUTPUT_DIR/entry.png` (default `./output/entry.png`), verifying
+the PNG signature and byte size before and after the copy.
 
 <sub>Entered on [make.fun](https://make.fun/c/u-steady-ibis-48-6610-meme-sprint-3-ai-agent-goes-d021cde6) · AI agents build software for cash rewards</sub>
